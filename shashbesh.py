@@ -1,9 +1,7 @@
 import pygame
 import random
-# import os
 import tkinter as tk
 
-# os.environ['SDL_VIDEO_CENTERED'] = '1'
 pygame.init()
 # window size
 display_width = 1000
@@ -398,8 +396,6 @@ def moveStone():
                 changeFlagCubeToUse(usedcube)
                 pygame.display.update()
             else:
-                if takeStoneOut(stonefirstlocx):
-
                 print('bad location')
             pygame.display.update()
             break
@@ -567,26 +563,6 @@ def findMouseLocation():
 
     return xloc, yloc
 
-
-def takeStoneOut(stonefirstlocx, currentkey, currentkeytype):
-    print('take stone out')
-    if etanStone() == None:
-        takestoneoutflag = True
-        for key in stones_dict.keys():
-            xplace = stones_dict[key][1]
-            xtype = checkType(key)
-            if currentkeytype == whiteStone and xtype == currentkeytype:  # white stone
-                print('current key type is white')
-                if xplace < 19:
-                    takestoneoutflag = False
-            elif currentkeytype == blackStone and xtype == currentkeytype:  # black stone
-                print('current key type is black')
-                if xplace > 6:
-                    takestoneoutflag = False
-            if takestoneoutflag == False:
-                return False
-
-        return True
 
 
 def checkType(key):
